@@ -1,8 +1,13 @@
 #include "FT3168.h"
 #include "esp_err.h"
-#include "lcd_config.h"
 
+#define I2C_ADDR_FT3168 0x38
+#define EXAMPLE_PIN_NUM_TOUCH_SCL 48
+#define EXAMPLE_PIN_NUM_TOUCH_SDA 47
 #define TEST_I2C_PORT I2C_NUM_0
+#define EXAMPLE_LCD_H_RES              466
+#define EXAMPLE_LCD_V_RES              466
+
 
 uint8_t I2C_writr_buff(uint8_t addr,uint8_t reg,uint8_t *buf,uint8_t len)
 {
