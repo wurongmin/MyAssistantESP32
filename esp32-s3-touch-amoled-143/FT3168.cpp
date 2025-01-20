@@ -42,8 +42,8 @@ void Touch_Init(void)
     .master = {.clk_speed = 300 * 1000,},  // Select a frequency for the project
     .clk_flags = 0,          // Optionally, use the I2C SCLK SRC FLAG * flag to select the I2C source clock
   };
-  ESP_ERROR_CHECK(i2c_param_config(TEST_I2C_PORT, &conf));
-  ESP_ERROR_CHECK(i2c_driver_install(TEST_I2C_PORT, conf.mode,0,0,0));
+  ESP_ERROR_CHECK_WITHOUT_ABORT(i2c_param_config(TEST_I2C_PORT, &conf));
+  ESP_ERROR_CHECK_WITHOUT_ABORT(i2c_driver_install(TEST_I2C_PORT, conf.mode,0,0,0));
 
   uint8_t data = 0x00;
   I2C_writr_buff(I2C_ADDR_FT3168,0x00,&data,1); //Switch to normal mode
